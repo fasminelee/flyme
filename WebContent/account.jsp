@@ -176,6 +176,7 @@
                         <div class="form-group">
                             
                         </div>
+                        <input type="button" value="ajax 登陆" onclick="checkUser()">
                         <button type="submit" class="btn btn-1" name="login" id="login">Login</button>
                         <a href="#">Forgot Your Password ?</a>
                     </form>
