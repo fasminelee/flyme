@@ -11,6 +11,7 @@ import javax.servlet.http.HttpSession;
 
 import com.flyme.dao.CustomerDao;
 import com.flyme.entity.Customer;
+import com.flyme.util.MD5;
 
 /**
  * Servlet implementation class doLoginServlet
@@ -34,8 +35,9 @@ public class doLoginServlet extends HttpServlet {
 		// 1、获得表单提交的数据
 		String name = request.getParameter("username").trim();
 		String password = request.getParameter("password").trim();
+		String Ciphertext = MD5.encryptWithMD5(password); // MD5加密后的密文
 		// 2、封装对象
-		Customer customer = new Customer(name, password);
+		Customer customer = new Customer(name, Ciphertext);
 		// 3、调用 CustomerDao 执行数据库操作
 		CustomerDao customerDao = new CustomerDao();
 		boolean isVaild = customerDao.checkUser(customer);
