@@ -1,7 +1,7 @@
 package com.flyme.servlet;
 
 import java.io.IOException;
-import java.util.Map;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -9,38 +9,34 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.flyme.entity.*;
+import com.flyme.dao.ProductDao;
+import com.flyme.entity.Product;
 
 /**
- * Servlet implementation class UpdateCartServlet
+ * Servlet implementation class CategoryServlet
  */
-public class UpdateCartServlet extends HttpServlet {
+public class CategoryServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UpdateCartServlet() {
+    public CategoryServlet() {
         super();
+        // TODO Auto-generated constructor stub
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		
-		int m=Integer.parseInt(request.getParameter("pNum"));	
-		int n=Integer.parseInt(request.getParameter("pID"));
-	
+		// TODO Auto-generated method stub
+		request.setCharacterEncoding("utf-8");
+		ProductDao productdao = new ProductDao();
+		List<Product> list = productdao.getRandProduct();
 		HttpSession session = request.getSession();
-		@SuppressWarnings("unchecked")
-		Map<Integer,CartItem>  cart = (Map<Integer, CartItem>) session.getAttribute("cart");
-		CartItem item = cart.get(n);
-		item.setNum(m);
-		cart.put(n, item);
-		session.setAttribute("cart", cart);
-		response.sendRedirect("cart.jsp");
+		session.setAttribute("categoryProduct", list);//存储
+		request.getRequestDispatcher("category.jsp").forward(request, response);
 	}
 
 	/**

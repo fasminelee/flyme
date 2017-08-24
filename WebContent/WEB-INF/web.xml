@@ -71,12 +71,52 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>FindMyInformationServlet</display-name>
-    <servlet-name>FindMyInformationServlet</servlet-name>
-    <servlet-class>com.flyme.servlet.FindMyInformationServlet</servlet-class>
+    <display-name>RemoveCartItem</display-name>
+    <servlet-name>RemoveCartItem</servlet-name>
+    <servlet-class>com.flyme.servlet.RemoveCartItem</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>FindMyInformationServlet</servlet-name>
-    <url-pattern>/FindMyInformationServlet</url-pattern>
+    <servlet-name>RemoveCartItem</servlet-name>
+    <url-pattern>/RemoveCartItem</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>UpdateCartServlet</display-name>
+    <servlet-name>UpdateCartServlet</servlet-name>
+    <servlet-class>com.flyme.servlet.UpdateCartServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateCartServlet</servlet-name>
+    <url-pattern>/UpdateCartServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>QuitServlet</display-name>
+    <servlet-name>QuitServlet</servlet-name>
+    <servlet-class>com.flyme.servlet.QuitServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>QuitServlet</servlet-name>
+    <url-pattern>/QuitServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>IndexProductServlet</display-name>
+    <servlet-name>IndexProductServlet</servlet-name>
+    <servlet-class>com.flyme.servlet.IndexProductServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>IndexProductServlet</servlet-name>
+    <url-pattern>/IndexProductServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CategoryServlet</display-name>
+    <servlet-name>CategoryServlet</servlet-name>
+    <servlet-class>com.flyme.servlet.CategoryServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CategoryServlet</servlet-name>
+    <url-pattern>/CategoryServlet</url-pattern>
   </servlet-mapping>
 </web-app>

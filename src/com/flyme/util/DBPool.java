@@ -1,13 +1,9 @@
 package com.flyme.util;
 
-import static org.junit.Assert.*;
-
 import java.sql.Connection;
 import java.sql.SQLException;
 
 import javax.sql.DataSource;
-
-import org.junit.Test;
 
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 
@@ -29,13 +25,4 @@ public class DBPool {
 		}
 		return null;
 	}
-	
-	@Test
-	public void test() throws Exception {
-		Connection conn = DBPool.getInstance().getConn();
-		if (null!=conn) {
-			System.out.println("数据库连接正常" + conn);
-		}
-	}
-
 }

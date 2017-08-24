@@ -1,6 +1,8 @@
 package com.flyme.servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -8,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.flyme.dao.ProductDao;
+import com.flyme.entity.Customer;
 import com.flyme.entity.Product;
 
 /**
@@ -15,33 +18,38 @@ import com.flyme.entity.Product;
  */
 public class IndexServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public IndexServlet() {
-        super();
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-			request.setCharacterEncoding("utf-8");
-			Product product = new Product();
-			String productID = request.getParameter("ProductID");
-			int pid= Integer.parseInt(productID);
-			product = new ProductDao().getProductByProductID(pid).get(0);
-			HttpSession session = request.getSession();
-			session.setAttribute("Product", product);//存储
-			response.sendRedirect("product.jsp");	
-//		request.getRequestDispatcher("product.html").forward(request, response);
+	public IndexServlet() {
+		super();
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		HttpSession session = request.getSession();
+		Customer customer = (Customer) session.getAttribute("customer");
+		PrintWriter out = response.getWriter();
+		out.println(customer);
+		response.sendRedirect("index.jsp"); // 跳转到主页
+		if (session.getAttribute("customer") != null) {
+		}
+
+		out.flush();
+		out.close();
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
