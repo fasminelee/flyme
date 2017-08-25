@@ -186,7 +186,7 @@
 							<span><%=entry.getValue().getProduct().getProductPrice() %></span>
 							<label>Qty: </label> <input class="form-inline quantity" type="text" value=<%=entry.getValue().getNum() %>><a href="#" class="btn btn-2 ">Update</a>
 							<hr>
-							<a href="RemoveCartItem?productID="+<%=entry.getValue().getProduct().getProductID()%> class="btn btn-default pull-right">REMOVE</a>
+							<a href="RemoveCartItem?productID=<%=entry.getValue().getProduct().getProductID()%>" class="btn btn-default pull-right">REMOVE</a>
 						</div>
 					</div>
 					<div class="clear"></div>
@@ -221,7 +221,7 @@
 								<td>400.00</td>
 							</tr>
 						</table>
-						<center><a href="#" class="btn btn-1">Checkout</a></center>
+						<center><a href="CreateOrderServlet" class="btn btn-1">Checkout</a></center>
 					</div>
 				</div>
 			</div>
