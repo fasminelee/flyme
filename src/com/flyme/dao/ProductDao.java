@@ -47,15 +47,24 @@ public class ProductDao extends BaseDao<Product> {
 	 * 
 	 * @return
 	 */
-	public List<Product> listAll() {
+	public List<Product> listNine() {
 		List<Product> list = super.executeQuery("select * from fm_product order by rand() limit 9", null);
+		return list;
+	}
+
+	/**
+	 * 获取全部产品
+	 * 
+	 * @return
+	 */
+	public List<Product> listAll() {
+		List<Product> list = super.executeQuery("select * from fm_product", null);
 		return list;
 	}
 
 	public List<Product> queryAll() {
 		List<Product> list = executeQuery("select * from fm_product");
 		return list;
-
 	}
 
 	public int add(Product info) throws ClassNotFoundException {
