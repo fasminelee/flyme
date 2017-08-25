@@ -56,7 +56,7 @@ public class CategoryServlet extends HttpServlet {
 		}
 		session.setAttribute("num2", num2);
 		Object[] obj = new Object[]{num1,num2};
-		List<Product> list = productdao.listNine(obj);
+		List<Product> list = productdao.listNine();
 		session.setAttribute("categoryProduct", list);//存储
 		request.getRequestDispatcher("category.jsp").forward(request, response);
 	}
